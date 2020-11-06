@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var [getProducts, insertProduct] = require('../controllers/product');
+const auth = require('../lib/utils/auth');
 
 /* GET product listing. */
-router.get('/', async function (req, res, next) {
+router.get('/', auth.checkToken ,async function (req, res, next) {
   const products = await getProducts();
   console.warn('products->', products);
   res.send(products);
