@@ -30,7 +30,7 @@ async function createUser(user) {
         user.password = await bycrypt.hash(user.password, saltRounds);
     }
     console.log(user);
-    return (await mongoUtils.conn()).withSession(async (client) => {
+    return mongoUtils.conn().then( async (client) => {
         const newUser = await client
             .db(dataBase)
             .collection(COLLECTION_NAME)
