@@ -16,4 +16,7 @@ A continuación se describe el reto y se adjuntan imágenes de la solución.
 ![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/createUser.png)
 ![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/claveEncriptada.png)
 
+## SOLUCIÓN ROLES
+
+
 
