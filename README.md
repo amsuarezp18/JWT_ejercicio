@@ -7,5 +7,5 @@
 ## SOLUCIÓN
 
 * A continuación se muestra la conexión exitosa a la base de datos MongDB. En la imagen 1 se puede ver la creación de un producto haciendo un request al backend. En la imagen 2, se observa como quedo almacenada la información en la base de datos.
-[]!(https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/createProductDatabase.png)
-[]!(https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/createProduct.png)
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/createProductDatabase.png)
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/createProduct.png)
