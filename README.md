@@ -33,15 +33,44 @@ A continuación se describe el reto y se adjuntan imágenes de la solución.
 *Cree un total de 3 roles en la aplicación dentro de un esquema de autorización. Al menos 1 de los roles debe estar en la capacidad de modificar información y persistirla para el consumo por parte de los demás roles: A continuación se muestra el esquema definido para la creación de roles.
 ( Básico puede consultar información, Supervisado puede editar información y consultar, Admin puede crear elementos, editar información y consultar)
 
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/esquema.png)
+
+***
 En las siguientes imágenes se crean tres usuarios distintos con roles diferentes, el primero como administrador, el segundo como supervisor y el último como básico.
 
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/basico.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/admin.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/supervisor.png)
+***
 En las siguientes imágenes se realiza el login de cada usuario y se procede a realizar request al backend donde se verifican los permisos de acuerdo a los roles.
 
 # Básico
-
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/loginBasico.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/seeBasico.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/addBasico.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/editBasico.png)
 
 # Supervisado
 
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/loginSuper.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/seeSuper.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/addSuper.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/editSuper.png)
+
 # Admin
 
-
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/loginAdmin.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/seeAdmin.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/addAdmin.png)
+***
+![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/editAdmin.png)
