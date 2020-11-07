@@ -6,6 +6,14 @@ const auth = require('../lib/utils/auth');
 
 /* GET product listing. */
 router.get('/', auth.checkToken, async function (req, res, next) {
+  let token = req.headers['authorization'] 
+  token = token.split(' ')[1];
+  if(grantAccess('readAny', token ,'productos') === false){
+    return res.status(401).json({
+     error: "No tienes permisos para realizar esta operación"
+    });
+  }
+
   const products = await getProducts();
   console.warn('products->', products);
   res.send(products);
@@ -17,7 +25,6 @@ router.get('/', auth.checkToken, async function (req, res, next) {
 router.post('/', auth.checkToken, async function (req, res, next) {
   let token = req.headers['authorization'] 
   token = token.split(' ')[1];
-
   if(grantAccess('createAny', token ,'productos') === false){
     return res.status(401).json({
      error: "No tienes permisos para realizar esta operación"
@@ -27,5 +34,7 @@ router.post('/', auth.checkToken, async function (req, res, next) {
   console.warn('insert products->', newProduct);
   res.send(newProduct);
 });
+
+
 
 module.exports = router;
