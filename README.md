@@ -7,14 +7,26 @@ A continuación se describe el reto y se adjuntan imágenes de la solución.
 
 ## SOLUCIÓN
 
-* Modificar el servidor / backend para conectarse con una base de datos : A continuación se muestra la conexión exitosa a la base de datos MongDB. En la imagen 1 se puede ver la creación de un producto haciendo un request al backend. En la imagen 2, se observa como quedo almacenada la información en la base de datos.
+* Modificar el backend para conectarse con una base de datos : A continuación se muestra la conexión exitosa a la base de datos MongDB. En la imagen 1 se puede ver la creación de un producto haciendo un request al backend. En la imagen 2, se observa como quedo almacenada la información en la base de datos. 
+
 ![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/createProductDatabase.png)
+
+***
 ![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/createProduct.png)
 
-* Implemente un mecanismo para encriptar las contraseñas : En la imagen 3, se muestra la creación de un usuario con sus credenciales. En la imagen 4 se observa como la constraseña no se guarda en text plano en la base de datos gracias al uso de bcrypt.
+***
+
+* Implemente un mecanismo para encriptar las contraseñas : En la imagen 3, se muestra la creación de un usuario con sus credenciales. En la imagen 4 se observa como la constraseña no se guarda en text plano en la base de datos gracias al uso de bcrypt. ( Los roles se crean en la segunda parte del reto)
 
 ![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/createUser.png)
+
+***
 ![](https://github.com/amsuarezp18/JWT_ejercicio/blob/main/images/claveEncriptada.png)
+
+***
+
+* Evidencia de funcionamiento de la función login y la autenticación para acceder al API con el fin de retornar los productos existentes. Se utiliza JWT.
+
 
 ## SOLUCIÓN ROLES
 
