@@ -7,7 +7,6 @@ ac.grant("basic")
  
 ac.grant("supervisor")
  .extend("basic")
- .readAny("productos")
  .updateAny("productos")
  
 ac.grant("admin")

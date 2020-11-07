@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var [getProducts, insertProduct, grantAccess ] = require('../controllers/product');
+var [getProducts, insertProduct, grantAccess, updateProduct ] = require('../controllers/product');
 
 const auth = require('../lib/utils/auth');
 
@@ -35,6 +35,20 @@ router.post('/', auth.checkToken, async function (req, res, next) {
   res.send(newProduct);
 });
 
+/**
+ * UPDATE Products
+ */
+router.put('/:productoId/', auth.checkToken, async function (req, res, next) {
+  let token = req.headers['authorization'] 
+  token = token.split(' ')[1];
+  if(grantAccess('updateAny', token ,'productos') === false){
+    return res.status(401).json({
+     error: "No tienes permisos para realizar esta operación"
+    });
+  }
 
+  const editProduct = await updateProduct(req.body, req.params.productoId);
+  res.send(editProduct);
+});
 
 module.exports = router;

@@ -25,6 +25,23 @@ function insertProduct(product) {
   });
 }
 
+function updateProduct(body, productoId) {
+  return mongoUtils.conn().then((client) => {
+    try {
+      return client
+        .db(dataBase)
+        .collection(COLLECTION_NAME)
+        .updateOne(
+          { _id: ObjectId(productoId) },
+          { $set: { name: body.name, price: body.price, quantity: body.quantity } },
+        )
+        .finally(() => client.close());
+    } catch (error) {
+      return error;
+    }
+  });
+}
+
 function grantAccess(action, token, resource){
     
   let value;  
@@ -43,4 +60,4 @@ function grantAccess(action, token, resource){
   return value;
 }
 
-module.exports = [getProducts, insertProduct, grantAccess];
+module.exports = [getProducts, insertProduct, grantAccess, updateProduct];
