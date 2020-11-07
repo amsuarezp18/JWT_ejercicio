@@ -30,5 +30,18 @@ A continuación se describe el reto y se adjuntan imágenes de la solución.
 
 ## SOLUCIÓN ROLES
 
+*Cree un total de 3 roles en la aplicación dentro de un esquema de autorización. Al menos 1 de los roles debe estar en la capacidad de modificar información y persistirla para el consumo por parte de los demás roles: A continuación se muestra el esquema definido para la creación de roles.
+( Básico puede consultar información, Supervisado puede editar información y consultar, Admin puede crear elementos, editar información y consultar)
+
+En las siguientes imágenes se crean tres usuarios distintos con roles diferentes, el primero como administrador, el segundo como supervisor y el último como básico.
+
+En las siguientes imágenes se realiza el login de cada usuario y se procede a realizar request al backend donde se verifican los permisos de acuerdo a los roles.
+
+# Básico
+
+
+# Supervisado
+
+# Admin
 
 
