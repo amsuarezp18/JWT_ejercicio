@@ -46,7 +46,6 @@ router.put('/:productoId/', auth.checkToken, async function (req, res, next) {
      error: "No tienes permisos para realizar esta operación"
     });
   }
-
   const editProduct = await updateProduct(req.body, req.params.productoId);
   res.send(editProduct);
 });

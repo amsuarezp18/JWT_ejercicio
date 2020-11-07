@@ -1,5 +1,6 @@
 const { mongoUtils, dataBase } = require('../lib/utils/mongo.js');
 const COLLECTION_NAME = 'productos';
+const { ObjectId } = require("mongodb");
 const { roles } = require('../roles');
 const jwt = require('jsonwebtoken');
 const secret = process.env.JWT_SECRET_KEY;
@@ -27,18 +28,18 @@ function insertProduct(product) {
 
 function updateProduct(body, productoId) {
   return mongoUtils.conn().then((client) => {
-    try {
-      return client
-        .db(dataBase)
-        .collection(COLLECTION_NAME)
-        .updateOne(
-          { _id: ObjectId(productoId) },
-          { $set: { name: body.name, price: body.price, quantity: body.quantity } },
-        )
-        .finally(() => client.close());
-    } catch (error) {
-      return error;
-    }
+    return client
+      .db(dataBase)
+      .collection(COLLECTION_NAME)
+      .updateOne(
+        {
+          _id: ObjectId(productoId),
+        },
+        {
+          $set: { name: body.name , price: body.price , quantity: body.quantity  },
+        },
+      )
+      .finally(() => client.close());
   });
 }
 
