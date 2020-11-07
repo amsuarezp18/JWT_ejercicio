@@ -1,5 +1,8 @@
 const { mongoUtils, dataBase } = require('../lib/utils/mongo.js');
 const COLLECTION_NAME = 'productos';
+const { roles } = require('../roles');
+const jwt = require('jsonwebtoken');
+const secret = process.env.JWT_SECRET_KEY;
 
 async function getProducts() {
   const client = await mongoUtils.conn();
@@ -22,4 +25,22 @@ function insertProduct(product) {
   });
 }
 
-module.exports = [getProducts, insertProduct];
+function grantAccess(action, token, resource){
+    
+  let value;  
+  jwt.verify( token, secret, (err, decoded ) => {
+    let role = decoded.role;
+    const permission = roles.can(role)[action](resource);
+
+    if (!permission.granted) {
+      value = false;
+    }
+    else {
+      value = true;
+    }
+
+  });
+  return value;
+}
+
+module.exports = [getProducts, insertProduct, grantAccess];

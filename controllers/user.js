@@ -3,6 +3,8 @@ const COLLECTION_NAME = 'users';
 const bycrypt = require('bcrypt');
 const auth = require('../lib/utils/auth');
 const saltRounds = 10;
+const User = require('../models/user');
+
 
 async function login(user) {
     return mongoUtils.conn().then(async (client) => {
@@ -26,15 +28,19 @@ async function login(user) {
 }
 
 async function createUser(user) {
-    if(user.password){
-        user.password = await bycrypt.hash(user.password, saltRounds);
+    const { username, email, password, role } = user
+    newUserModel = new User({ username, email, password, role: role || "basic" });
+
+    if(newUserModel.password){
+        newUserModel.password = await bycrypt.hash(user.password, saltRounds);
     }
     console.log(user);
+
     return mongoUtils.conn().then( async (client) => {
         const newUser = await client
             .db(dataBase)
             .collection(COLLECTION_NAME)
-            .insertOne(user)
+            .insertOne(newUserModel)
             .finally(() => client.close());
 
         newUser && newUser.ops ? delete newUser.ops[0].password: newUser;
